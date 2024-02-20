@@ -1,0 +1,150 @@
+#include<iostream>
+#include<time.h>
+using namespace std;
+int _myHand = 0;
+int _comHand = 0;
+
+//변수 선언
+//int _myHand = 0; //내 손
+//int _comHand = 0; //상대방 손
+
+//함수 선언
+// 함수 (main함수 위에 선언할것!)
+// void 함수명() (함수명은 대문자로 시작) 
+// {
+//		실행시킬 코드
+// }
+
+
+void PrintGameStartScene() {
+	srand(time(NULL));
+	::printf("-Rock Scissor Paper Game-\n");
+
+}
+
+void ChooseMyHand() {
+
+	printf("가위 (0), 바위 (1), 보 (2) 중에 하나를 입력하세요 : \n");
+	cin >> _myHand;
+
+	cout << "내가 뽑은 것은 : \n ";
+	if (_myHand == 0) {
+		cout << "가위" << endl;
+	}
+	else if (_myHand == 1) {
+		cout << "바위" << endl;
+	}
+	else if (_myHand == 2) {
+		cout << "보" << endl;
+	}
+	else {
+		cout << "잘못 뽑았습니다" << endl;
+	}
+
+}
+
+void ChooseComHand() {
+
+
+	cout << "상대방이 뽑을 것은? : \n";
+	_comHand = rand() % 3;
+}
+
+void PrintHands() {
+
+	cout << "내가 뽑을것은? : \n";
+	if (_myHand == 0) {
+		cout << "가위" << endl;
+	}
+	else if (_myHand == 1) {
+		cout << "바위" << endl;
+	}
+	else if (_myHand == 2) {
+		cout << "보" << endl;
+	}
+	else {
+		cout << "잘못 뽑았습니다" << endl;
+	}
+
+	cout << "상대가 뽑을것은? : \n";
+	if (_comHand == 0) {
+		cout << "가위" << endl;
+	}
+	else if (_comHand == 1) {
+		cout << "바위" << endl;
+	}
+	else if (_comHand == 2) {
+		cout << "보" << endl;
+	}
+	else {
+		cout << "잘못 뽑았습니다" << endl;
+	}
+}
+
+void PrintGameResult() {
+
+	if (_myHand == _comHand)
+	{
+		cout << "-----둘이 비겼습니다.-----" << endl;
+	}
+	else if (_myHand == 0)
+	{
+		if (_comHand == 1)
+			cout << "-----상대가 이겼습니다.-----" << endl;
+		else
+			cout << "-----내가 이겼습니다.-----" << endl;
+	}
+	else if (_myHand == 1)
+	{
+		if (_comHand == 2)
+			cout << "-----상대가 이겼습니다.-----" << endl;
+		else
+			cout << "-----내가 이겼습니다.-----" << endl;
+	}
+	else if (_myHand == 2)
+	{
+		if (_comHand == 0)
+			cout << "-----상대가 이겼습니다.-----" << endl;
+		else
+			cout << "-----내가 이겼습니다.-----" << endl;
+	}
+	else
+	{
+		cout << "다시 내주세요." << endl;
+	}
+
+}
+
+int main() {
+
+	//cin
+	//cout
+
+	//std::cout
+	//std::cin
+
+	//std::cout << "안녕하세요" << std::endl;
+
+	// 함수
+	// void 함수명() 
+	// {
+	//		실행시킬 코드
+	// }
+
+	//프로그래밍에서 가장 중요한건 가독성
+
+	//수도코드 (직감적으로 하는 프로그래머)
+	//(손으로 써가면서 연습하는 프로그래머)
+	// 
+	//1. 게임 시작화면을 출력한다. (PrintGameStartScene)
+	//2. 내가 어떤걸 뽑을지 선택한다. (ChooseMyHand)
+	//3. 상대방이 어떤걸 뽑을지 정한다. (ChooseComHand) (출력할거 없음) (랜덤 사용)
+	//4. 내가 뽑은것과 상대방이 뽑을것을 출력한다 (PrintHands)
+	//5. 승패를 출력한다 (PrintGameResult)
+
+	::PrintGameStartScene();
+	::ChooseMyHand();
+	::ChooseComHand();
+	::PrintHands();
+	::PrintGameResult();
+}
